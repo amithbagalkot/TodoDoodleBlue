@@ -1,0 +1,61 @@
+<form (submit)="addTask()">
+<div class="form-group">
+  <input  class="form-control" [(ngModel)]="taskame" name="taskame" placeholder="Task Name">
+</div>
+
+<input type="submit" value="submit" class="btn btn-success btn-lg btn-block">
+
+</form>
+
+
+<table class="table">
+  <tr>
+    <th>Task</th>
+    <th>Date Created</th>
+    <th>Edit Time</th>
+    <th>expiry Time</th>
+  </tr>
+  <tr *ngFor="let task of tasks; let i = index">
+    <td class="text-left" >
+        <a >
+            <span *ngIf="!edit">{{task.taskname}}</span>
+            <input *ngIf="edit" [(ngModel)]="task.taskname" (blur)="updateTask(task)" (keyup.enter)="updateTask(task)">
+          </a>
+    </td>
+    <td>{{task.createdAt}}</td>
+
+    <td>{{task.updatedTime}}</td>
+    <td>expiry date</td>
+    <td class="text-right">
+     <button class="btn btn-danger" title="delete task" (click)="deleteTask(task, i)">Delete</button>
+    </td>
+  </tr>
+</table>
+
+<div class="card card-body bg-light text-center">
+  <span class="small" (click)="clickToEdit()">click to Edit  </span>
+</div>
+
+<button class="recover" (click)="getRecoverTask()">GetRecoverTaskList</button>
+<table class="table">
+    <tr>
+      <th>Task</th>
+      <th>Date Created</th>
+      <th>Edit Time</th>
+      <th>expiry Time</th>
+    </tr>
+    <tr *ngFor="let task of recover_tasks">
+      <td class="text-left" >
+          <a (click)="editTask()">
+              <span *ngIf="!edit">{{task.taskname}}</span>
+            </a>
+      </td>
+      <td>{{task.createdAt }}</td>
+  
+      <td>edit date</td>
+      <td>expiry date</td>
+      <td class="text-right">
+       <button class="btn btn-danger" title="delete task" (click)="addRecoverTask(task, i)">Recover</button>
+      </td>
+    </tr>
+  </table>
