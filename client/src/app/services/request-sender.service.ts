@@ -43,7 +43,8 @@ export class RequestSender {
         if (localStorage.token) {
           requestObj.headers['Authorization'] = `Bearer ${localStorage.token}`;
         }
-        var url = `${requestObj.path}`;
+        var url = `${ApiConfig.HOST}/${requestObj.path}`;
+        console.log(ApiConfig.HOST);
         console.log(url);
         switch (requestObj.method) {
           case 'GET':

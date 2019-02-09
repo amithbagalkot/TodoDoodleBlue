@@ -64,7 +64,7 @@ export class TaskService {
         if (localStorage.token) {
           requestObj.headers['Authorization'] = `Bearer ${localStorage.token}`;
         }
-        var url = `${requestObj.path}`;
+        var url = `${ApiConfig.HOST}/${requestObj.path}`;
         switch (requestObj.method) {
           case 'GET':
             return this.http.get(url, { headers: requestObj.headers });

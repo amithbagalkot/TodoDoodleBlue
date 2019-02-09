@@ -1,5 +1,5 @@
 export let ApiConfig = {
- //   HOST: "http://localhost:3001",
+   HOST: "http://localhost:3001",
     LOGIN: "auth/local",
     REGISTER_USER: "user/register",
     ADD_TASK: "api/v1/task/add",

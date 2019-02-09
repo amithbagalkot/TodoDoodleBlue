@@ -16,6 +16,7 @@ export class DashboardComponent implements OnInit {
   constructor(private taskService: TaskService) { }
 
   ngOnInit() {
+    console.log('it is working')
     this.taskService.getTask().subscribe(tasks => {
       this.tasks = tasks.meta.data;
     });
@@ -51,6 +52,7 @@ export class DashboardComponent implements OnInit {
   }
 
   getRecoverTask() {
+    console.log('it is working');
     this.taskService.getRecoverTask().subscribe(tasks => {
       this.recover_tasks = tasks.meta.data;
     });
